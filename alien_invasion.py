@@ -14,7 +14,7 @@ def run_game():
     #程序框标题
     pygame.display.set_caption("外星人入侵")
     #创建一艘飞船
-    ship = Ship(screen)
+    ship = Ship(ai_settings,screen)
     #开始游戏的主循环
     while True:
 
@@ -22,8 +22,9 @@ def run_game():
         # for event in pygame.event.get():
         #     if event.type == pygame.QUIT:
         #         sys.exit()
-        gf.check_events()
+        gf.check_events(ship)
         #每次循环都重新绘制屏幕
+        ship.update()
         gf.update_screen(ai_settings, screen, ship)
 
 run_game()
